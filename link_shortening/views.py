@@ -17,7 +17,7 @@ def main(request):
     form = LinkForm(request.POST)
     urls = Link.objects.all()
     context = {
-        'urls': urls,
+        'urls': urls[::-1],
         'form': LinkForm(),
     }
 

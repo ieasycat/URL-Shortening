@@ -12,6 +12,7 @@
     <div align="center">
         <table border=1>
             <tr>
+                <td><div align="center">ID</div></td>
                 <td><div align="center">Full URL</div></td>
                 <td><div align="center">Abbreviated URL</div></td>
                 <td><div align="center">Data create</div></td>
@@ -19,6 +20,7 @@
             </tr>
             <tr>
                 {% for url in urls %}
+                <td><div align="center">{{ url.id }}</div></td>
                 <td>
                     <div align="center">{{ url.url }}</div>
                 </td>
