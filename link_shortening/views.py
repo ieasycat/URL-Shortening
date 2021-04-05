@@ -1,4 +1,5 @@
-from random import randint
+import string
+from random import randint, choice
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from link_shortening.models import Link
@@ -8,7 +9,7 @@ from link_shortening.forms import LinkForm
 
 
 def reduction():
-    short_url = [(str(randint(0, 9))) for i in range(5)]
+    short_url = [choice(string.ascii_letters + str(randint(0, 9))) for x in range(6)]
     return f"http://127.0.0.1:8000/{''.join(short_url)}"
 
 

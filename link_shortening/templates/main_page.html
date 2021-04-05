@@ -4,6 +4,7 @@
     <form action="" method="post">
         <div align="center">
             <p>Enter the URL</p>
+            {% csrf_token %}
             {{ form.as_p }}
             <p><input type="submit" value="Create"></p>
         </div>
