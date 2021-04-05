@@ -19,11 +19,11 @@
             <tr>
                 {% for url in urls %}
                 <td>
-                    <div align="center">{{ url.link }}</div>
+                    <div align="center">{{ url.url }}</div>
                 </td>
                 <td>
                     <div align="center">
-                    <a href="{% url 'redirect_original' url.id %}">{{ url.abbreviated_link }}</a>
+                    <a href="{% url 'redirect_original' url.id %}">{{ url.abbreviated_url }}</a>
                     </div>
                 </td>
                 <td><div align="center">{{ url.data }}</div></td>
