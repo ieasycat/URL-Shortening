@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %} Main Page {% endblock %}
+{% block content %}
+    <form action="main" method="post">
+        <div align="center">
+            <p>Enter the URL</p>
+            {{ form.as_p }}
+            <p><input type="submit" value="Create"></p>
+        </div>
+    </form>
+    <div align="center">
+        <table border=1>
+            <tr>
+                <td><div align="center">Full URL</div></td>
+                <td><div align="center">Abbreviated URL</div></td>
+                <td><div align="center">Data create</div></td>
+                <td><div align="center">Clicks</div></td>
+            </tr>
+            <tr>
+                {% for url in urls %}
+                <td>
+                    <div align="center">{{ url.link }}</div>
+                </td>
+                <td>
+                    <div align="center">
+                    <a href="{% url 'redirect_original' url.id %}">{{ url.abbreviated_link }}</a>
+                    </div>
+                </td>
+                <td><div align="center">{{ url.data }}</div></td>
+                <td><div align="center">{{ url.clicks }}</div></td>
+            </tr>
+                {% endfor %}
+        </table>
+    </div>
+{% endblock %}
