@@ -1,7 +1,7 @@
 import string
 from random import randint, choice
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from link_shortening.models import Link
 from link_shortening.forms import LinkForm
 
@@ -29,6 +29,8 @@ def main(request):
             url=url,
             abbreviated_url=reduction()
         )
+        return redirect('main')
+
     return render(request, 'main_page.html', context)
 
 
