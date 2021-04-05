@@ -4,8 +4,8 @@ from django.db import models
 
 
 class Link(models.Model):
-    link = models.URLField()
-    abbreviated_link = models.URLField()
+    url = models.URLField()
+    abbreviated_url = models.URLField()
     data = models.DateTimeField(auto_now_add=True)
     clicks = models.IntegerField(default=0)
 
@@ -14,5 +14,5 @@ class Link(models.Model):
         self.save()
 
     def __str__(self):
-        return f'{self.pk} - {self.link} - ' \
-               f'{self.abbreviated_link} - {self.data} - {self.clicks}'
+        return f'{self.pk} - {self.url} - ' \
+               f'{self.abbreviated_url} - {self.data} - {self.clicks}'

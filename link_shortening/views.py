@@ -25,8 +25,8 @@ def main(request):
         url = cd.get('url')
 
         Link.objects.create(
-            link=url,
-            abbreviated_link=reduction()
+            url=url,
+            abbreviated_url=reduction()
         )
     return render(request, 'main_page.html', context)
 
@@ -34,4 +34,4 @@ def main(request):
 def redirect_original(request, short_id):
     url = Link.objects.get(id=short_id)
     url.clicked()
-    return HttpResponseRedirect(url.link)
+    return HttpResponseRedirect(url.url)
