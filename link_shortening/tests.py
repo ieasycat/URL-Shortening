@@ -11,6 +11,11 @@ class RandomTest(TestCase):
         url = reduction()
         assert len(url) == 28
 
+    @staticmethod
+    def test_reduction_shorter_url():
+        url = reduction('F2mV8')
+        assert len(url) == 27
+
 
 class HomeTest(TestCase):
     def setUp(self):

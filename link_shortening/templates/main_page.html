@@ -3,10 +3,28 @@
 {% block content %}
     <form action="" method="post">
         <div align="center">
-            <p>Enter the URL</p>
-            {% csrf_token %}
-            {{ form.as_p }}
+            {% for field in form %}
+            <div class="form-group">
+                {{  field.label_tag  }}
+                <div>{{field}}</div>
+            </div>
+            {% endfor %}
+            {% if form.errors %}
+                <!-- Error messaging -->
+                <div id="errors">
+                    <div class="alert alert-danger">
+                        <p>This short link already exists, enter another one.</p>
+                        <ul>
+                            {% for field in form %}
+                                {% if field.errors %}<li>{{ field.label }}: {{ field.errors|striptags }}</li>{% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <!-- /Error messaging -->
+            {% endif %}
             <p><input type="submit" value="Create"></p>
+            {% csrf_token %}
         </div>
     </form>
     <div align="center">

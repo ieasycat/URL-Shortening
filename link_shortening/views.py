@@ -8,29 +8,35 @@ from link_shortening.forms import LinkForm
 # Create your views here.
 
 
-def reduction():
-    short_url = [choice(string.ascii_letters + str(randint(0, 9))) for x in range(6)]
-    return f"http://127.0.0.1:8000/{''.join(short_url)}"
+def reduction(user_short_url=None):
+    if user_short_url:
+        short_url = user_short_url
+    else:
+        short_url = ''.join([choice(string.ascii_letters + str(randint(0, 9))) for x in range(6)])
+    return f"http://127.0.0.1:8000/{short_url}"
 
 
 def main(request):
-    form = LinkForm(request.POST)
     urls = Link.objects.all()
+    if request.POST:
+        form = LinkForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            url = cd.get('url')
+            user_short_url = cd.get('abbreviated_urls')
+
+            Link.objects.create(
+                url=url,
+                abbreviated_url=reduction(user_short_url)
+            )
+            return redirect('main')
+    else:
+        form = LinkForm()
+
     context = {
         'urls': urls[::-1],
-        'form': LinkForm(),
+        'form': form,
     }
-
-    if form.is_valid():
-        cd = form.cleaned_data
-        url = cd.get('url')
-
-        Link.objects.create(
-            url=url,
-            abbreviated_url=reduction()
-        )
-        return redirect('main')
-
     return render(request, 'main_page.html', context)
 
 
