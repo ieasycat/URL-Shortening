@@ -10,4 +10,4 @@
 
 ## Мелочи
 
-<p>[Проек](https://tms-link-shortening.herokuapp.com)</p>
+[Проект на хероку](https://tms-link-shortening.herokuapp.com)
