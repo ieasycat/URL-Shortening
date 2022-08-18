@@ -1,13 +1,24 @@
-# Вэб приложение для создание коротких ссылок
+# URL-Shortening
 
-<p>Приложение позволяет создать ссылку как самому, так и с помощью рандома, не много магии, чисел и букв ;o</p>
-<p>Александр, сильно не пинайте, особенно за тесты, я не понял как проверить все, если можно, был бы рад разбору :pill:</p>
+The application is implemented:
+  - Creating links yourself.
+  - Generating a random link.
 
-## Установка
+This application is installed on Heroku.
 
-<p>:one: Для того, чтобы скачать репозиторий себе на ПК, выполняем команду git@github.com:ieasycat/project1.git</p>
-<p>:two: После нужно установить все фраемворки, для работы. Выполянем python -m pip install -r requirements.txt</p>
+Stack: Django, SQLite
 
-## Мелочи
+## Install
 
-[Проект на хероку](https://tms-link-shortening.herokuapp.com)
+- virtualenv -p python3 .venv
+- source .venv/bin/activate
+- git@github.com:ieasycat/URL-Shortening.git
+- python -m pip install -r requirements.txt
+
+## Launching the application
+
+- python manage.py runserver
+
+## Heroku
+
+[Heroku](https://tms-link-shortening.herokuapp.com/)
