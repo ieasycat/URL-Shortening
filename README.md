@@ -4,7 +4,7 @@ The application is implemented:
   - Creating links yourself.
   - Generating a random link.
 
-This application is installed on Heroku.
+This application is deployed on Heroku.
 
 Stack: Django, SQLite
 
